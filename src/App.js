@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {fetchData} from "./featuers/postsSlice";
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const pokemon = useSelector((state) => state.postsSlice.pokemon)
+    const dispatch = useDispatch()
+    console.log(pokemon)
+    useEffect(() => {
+        dispatch(fetchData())
+    }, []);
+    return (
+        <div className='main'>
+            <h1 className='title'>GEEKS</h1>
+            {
+                pokemon.map((item) => (
+                    <div key={item.id} className='card' >
+                        <img width='100px' src={item.sprites.other.dream_world.front_default} alt=""/>
+                        <h2>{item.name}</h2>
+                    </div>
+                ))
+            }
+        </div>
+    );
+};
 
 export default App;
