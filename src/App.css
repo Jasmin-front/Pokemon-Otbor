@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+body{
+  background-color: yellow;
+  height: 100vh;
+  width: 100%;
+}
+.card{
+  background-color: #61dafb;
+  width: 350px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  border-radius:  30px;
+  justify-content: center;
+  box-shadow: 5px 5px black;
+
+}
+.main{
+  gap: 35px;
+  margin: 0 auto;
+  width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.title{
+  color: black;
+  font-size: 50px;
+  font-family: sans-serif;
+}
